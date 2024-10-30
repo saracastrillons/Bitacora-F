@@ -5,10 +5,10 @@ public class Ejercicio0 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingresa el primer string (str1): ");
+        System.out.print("Ingresa el primer string : ");
         String str1 = scanner.nextLine();
 
-        System.out.print("Ingresa el segundo string (str2): ");
+        System.out.print("Ingresa el segundo string : ");
         String str2 = scanner.nextLine();
 
         if (str1.equals(str2)) {
