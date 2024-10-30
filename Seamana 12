@@ -1,0 +1,125 @@
+import java.util.Scanner;
+
+public class Ejercicio3 {
+    private static final int N = 1000;
+    private static int num = 0;
+    private static int[] arreglo = new int[N];
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion, elemento, result, pos;
+
+        do {
+            opcion = leerMenu(scanner);
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el elemento a adicionar: ");
+                    elemento = scanner.nextInt();
+                    result = adicionarElemento(arreglo, elemento);
+                    System.out.println("Número de pasos: " + result);
+                    break;
+                case 2:
+                    System.out.print("Ingrese el elemento a borrar: ");
+                    elemento = scanner.nextInt();
+                    result = borrarElemento(arreglo, elemento);
+                    System.out.println("Número de pasos: " + result);
+                    break;
+                case 3:
+                    imprimirArreglo(arreglo, num);
+                    break;
+                case 4:
+                    result = tamanoArreglo();
+                    System.out.println("Tamaño del arreglo: " + result);
+                    break;
+                case 5:
+                    System.out.print("Ingrese el elemento a buscar: ");
+                    elemento = scanner.nextInt();
+                    pos = buscarArreglo(arreglo, elemento);
+                    System.out.println("La posición del elemento es: " + pos);
+                    break;
+                case 0:
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+            }
+        } while (opcion != 0);
+
+        scanner.close();
+    }
+
+    private static int leerMenu(Scanner scanner) {
+        System.out.println("Menú:");
+        System.out.println("1. Adicionar elemento");
+        System.out.println("2. Borrar elemento");
+        System.out.println("3. Imprimir arreglo");
+        System.out.println("4. Tamaño del arreglo");
+        System.out.println("5. Buscar elemento");
+        System.out.println("0. Salir");
+        System.out.print("Seleccione una opción: ");
+        return scanner.nextInt();
+    }
+
+    private static void imprimirArreglo(int[] arr, int tam) {
+        for (int i = 0; i < tam; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    private static int adicionarElemento(int[] arr, int elemento) {
+        int pasos = 0;
+        if (num >= N) {
+            System.out.println("Arreglo lleno");
+            return pasos;
+        }
+        int i;
+        for (i = num - 1; (i >= 0 && arr[i] > elemento); i--) {
+            arr[i + 1] = arr[i];
+            pasos++;
+        }
+        arr[i + 1] = elemento;
+        num++;
+        pasos++;
+        return pasos;
+    }
+
+    private static int borrarElemento(int[] arr, int elemento) {
+        int pasos = 0;
+        int i;
+        for (i = 0; i < num; i++) {
+            pasos++;
+            if (arr[i] == elemento) {
+                break;
+            }
+        }
+        if (i == num) {
+            System.out.println("Elemento no encontrado");
+            return pasos;
+        }
+        for (int j = i; j < num - 1; j++) {
+            arr[j] = arr[j + 1];
+            pasos++;
+        }
+        num--;
+        pasos++;
+        return pasos;
+    }
+
+    private static int tamanoArreglo() {
+        return num;
+    }
+
+    private static int buscarArreglo(int[] arr, int elemento) {
+        int pasos = 0;
+        for (int i = 0; i < num; i++) {
+            pasos++;
+            if (arr[i] == elemento) {
+                System.out.println("Número de pasos: " + pasos);
+                return i;
+            }
+        }
+        System.out.println("Número de pasos: " + pasos);
+        return -1;
+    }
+}
