@@ -1,3 +1,33 @@
+Ejercicio 1//
+import java.util.Scanner;
+
+public class Ejercicio1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer el tamaño del arreglo
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int x = scanner.nextInt();
+
+        // Crear el arreglo
+        int[] arr_int = new int[x];
+
+        // Llenar el arreglo con el doble de cada número ingresado por el usuario
+        for (int i = 0; i < x; i++) {
+            System.out.print("Ingrese un número entero: ");
+            arr_int[i] = scanner.nextInt() * 2;
+        }
+
+        // Imprimir el arreglo
+        System.out.println("Valores multiplicados por dos:");
+        for (int i = 0; i < x; i++) {
+            System.out.println(arr_int[i]);
+        }
+
+        
+    }
+}
+
 Ejercicio 2//
 import java.util.Scanner;
 
@@ -68,6 +98,37 @@ public class Ejercicio4 {
         System.out.println("Arreglo resultante:");
         for (int i = 0; i < n / 2; i++) {
             System.out.println(arreglo2[i]);
+        }
+
+        scanner.close();
+    }
+}
+ejercicio 5//
+import java.util.Scanner;
+
+public class Ejercicio5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el tamaño del arreglo: ");
+        int n = scanner.nextInt();
+
+        int[] arreglo = new int[n];
+        System.out.println("Ingrese los elementos del arreglo:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Elemento " + (i + 1) + ": ");
+            arreglo[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arreglo[i];
+            arreglo[i] = arreglo[n - i - 1];
+            arreglo[n - i - 1] = temp;
+        }
+
+     
+        System.out.println("Arreglo invertido:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arreglo[i] + " ");
         }
 
         scanner.close();
