@@ -1,0 +1,70 @@
+public class Calculadora {
+    private double memoria;
+
+    public Calculadora() {
+        this.memoria = 0.0;
+    }
+
+    public double obtenerMemoria() {
+        return this.memoria;
+    }
+
+    public void iniciarMemoria() {
+        this.memoria = 0.0;
+    }
+
+    public double sumar(double a, double b) {
+        double resultado = a + b;
+        this.memoria += resultado;
+        return resultado;
+    }
+
+    public double restar(double a, double b) {
+        double resultado = a - b;
+        this.memoria += resultado;
+        return resultado;
+    }
+
+    public double multiplicar(double a, double b) {
+        double resultado = a * b;
+        this.memoria += resultado;
+        return resultado;
+    }
+
+    public double dividir(double a, double b) {
+        if (b != 0) {
+            double resultado = a / b;
+            this.memoria += resultado;
+            return resultado;
+        } else {
+            throw new ArithmeticException("División por cero no permitida.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        double a = 10.3;
+        double b = 5.4;
+        double c = 7.0;
+        double d = 6.3;
+        double r;
+
+        r = calc.sumar(a, b);
+        System.out.println(r);
+        System.out.println(calc.obtenerMemoria());
+
+        r = calc.restar(c, d);
+        System.out.println(r);
+        System.out.println(calc.obtenerMemoria());
+
+        calc.iniciarMemoria();
+
+        r = calc.multiplicar(c, d);
+        System.out.println(r);
+        System.out.println(calc.obtenerMemoria());
+
+        r = calc.dividir(a, b);
+        System.out.println(r);
+        System.out.println(calc.obtenerMemoria());
+    }
+}
