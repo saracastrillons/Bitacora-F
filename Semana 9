@@ -1,145 +1,124 @@
-
+EJERCICIO 0//
 import java.util.Scanner;
 
 public class Ejercicio0 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese la primera cadena (str1): ");
+        System.out.print("Ingresa el primer string (str1): ");
         String str1 = scanner.nextLine();
 
-        System.out.print("Ingrese la segunda cadena (str2): ");
+        System.out.print("Ingresa el segundo string (str2): ");
         String str2 = scanner.nextLine();
 
         if (str1.equals(str2)) {
-            System.out.println("Las cadenas son iguales.");
+            System.out.println("Los strings son iguales");
         } else {
-            System.out.println("Las cadenas son diferentes.");
+            System.out.println("Los strings son diferentes");
         }
 
+        scanner.close();
     }
 }
-1//
+EJERCICIO 1//
 import java.util.Scanner;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese un string:");
-        String inputString = scanner.nextLine();
+        System.out.print("Ingresa un string: ");
+        String texto = scanner.nextLine();
 
-        System.out.println("Ingrese un caracter:");
-        char character = scanner.next().charAt(0);
+        System.out.print("Ingresa una letra para contar: ");
+        String letra = scanner.nextLine();
 
-        int count = 0;
-        for (int i = 0; i < inputString.length(); i++) {
-            if (inputString.charAt(i) == character) {
-                count++;
+        int contador = 0;
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.substring(i, i + 1).equals(letra)) {
+                contador++;
             }
         }
 
-        System.out.println("El caracter '" + character + "' aparece " + count + " veces en el string.");
+        System.out.println("La letra '" + letra + "' aparece " + contador + " veces.");
+
+        scanner.close();
     }
 }
-
-2//
+EJERCICIO 2//
 import java.util.Scanner;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese un string:");
-        String input = scanner.nextLine();
-        String reversed = new StringBuilder(input).reverse().toString();
-        System.out.println("String al revés: " + reversed);
-    }
 
-3// 
+        System.out.print("Ingresa un string para invertir: ");
+        String texto = scanner.nextLine();
+
+        String textoInvertido = "";
+        for (int i = texto.length() - 1; i >= 0; i--) {
+            textoInvertido += texto.substring(i, i + 1);
+        }
+
+        System.out.println("El string invertido es: " + textoInvertido);
+
+        scanner.close();
+    }
+}
+EJERCICIO 3//
 import java.util.Scanner;
 
 public class Ejercicio3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese la primera cadena:");
-        String cadena1 = scanner.nextLine();
+        System.out.print("Ingresa el primer string (string1): ");
+        String string1 = scanner.nextLine();
 
-        System.out.println("Ingrese la segunda cadena:");
-        String cadena2 = scanner.nextLine();
+        System.out.print("Ingresa el segundo string (string2): ");
+        String string2 = scanner.nextLine();
 
-        if (cadena1.contains(cadena2)) {
-            System.out.println("La segunda cadena es una subcadena de la primera cadena.");
+        if (string1.contains(string2)) {
+            System.out.println("string2 es un substring de string1");
         } else {
-            System.out.println("La segunda cadena no es una subcadena de la primera cadena.");
+            System.out.println("string2 no es un substring de string1");
         }
 
+        scanner.close();
     }
 }
+EJERCICIO 4//
+import java.util.Scanner;
 
-4//
 public class Ejercicio4 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         String str1 = "Esta es una prueba de string, que verifica donde esta un string";
-        String str2 = "esta";
-        String str3 = "string";
+        System.out.println("Frase: " + str1);
 
-        // Convertir a minúsculas para ignorar mayúsculas y minúsculas
-        String str1Lower = str1.toLowerCase();
-        String str2Lower = str2.toLowerCase();
-        String str3Lower = str3.toLowerCase();
+        System.out.print("Ingresa el primer substring a buscar (str2): ");
+        String str2 = scanner.nextLine();
 
-        // Encontrar todas las posiciones de str2 en str1
-        System.out.println("Posiciones de \"" + str2 + "\" en str1:");
-        int index = str1Lower.indexOf(str2Lower);
-        while (index >= 0) {
-            System.out.println(index);
-            index = str1Lower.indexOf(str2Lower, index + 1);
+        System.out.print("Ingresa el segundo substring a buscar (str3): ");
+        String str3 = scanner.nextLine();
+
+        System.out.print("Posiciones de \"" + str2 + "\": ");
+        int index = str1.toLowerCase().indexOf(str2.toLowerCase());
+        while (index != -1) {
+            System.out.print(index + " ");
+            index = str1.toLowerCase().indexOf(str2.toLowerCase(), index + 1);
         }
+        System.out.println();
 
-        // Encontrar todas las posiciones de str3 en str1
-        System.out.println("Posiciones de \"" + str3 + "\" en str1:");
-        index = str1Lower.indexOf(str3Lower);
-        while (index >= 0) {
-            System.out.println(index);
-            index = str1Lower.indexOf(str3Lower, index + 1);
+        System.out.print("Posiciones de \"" + str3 + "\": ");
+        index = str1.toLowerCase().indexOf(str3.toLowerCase());
+        while (index != -1) {
+            System.out.print(index + " ");
+            index = str1.toLowerCase().indexOf(str3.toLowerCase(), index + 1);
         }
-    }
-}
-5//
-import java.util.Scanner;
+        System.out.println();
 
-public class ejercicio5 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese un string:");
-        String input = scanner.nextLine();
-        
-        String reversed = new StringBuilder(input).reverse().toString();
-        
-        System.out.println("String invertido: " + reversed);
-    }
-}
-
-6//
-import java.util.Scanner;
-
-public class Ejercicio6 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese un string: ");
-        String string1 = scanner.nextLine();
-        String nuevoString = procesarString(string1);
-        System.out.println("El nuevo string es: " + nuevoString);
-    }
-
-    public static String procesarString(String string1) {
-        int longitud = string1.length();
-        if (longitud % 2 == 0) {
-            return "" + string1.charAt(0) + string1.charAt(longitud - 1);
-        } else {
-            int mitad = longitud / 2;
-            return "" + string1.charAt(0) + string1.charAt(mitad) + string1.charAt(longitud - 1);
-        }
+        scanner.close();
     }
 }
